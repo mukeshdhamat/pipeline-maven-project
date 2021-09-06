@@ -1,11 +1,14 @@
 #!/bin/bash
 
-echo "Copying the latest jar file"
-echo "***************************"
-cp -f /java-app/target/*.jar jenkins/build/
+echo "**************************************"
+echo "******Copy JAR******************"
+echo "**************************************"
 
-echo "*******************************"
-echo "********Building***************"
-echo "*******************************"
+cp -f java-app/target/my-app-1.0-SNAPSHOT.jar jenkins/build/
 
-cd jenkins/build/ && docker-compose -f docker-compose-build.yml build --no-cache
+echo "**************************************"
+echo "******Building Docker Image******************"
+echo "**************************************"
+
+cd jenkins/build && docker-compose build --no-cache
+
